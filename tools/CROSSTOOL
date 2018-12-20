@@ -1,0 +1,30 @@
+major_version: "local"
+minor_version: ""
+
+toolchain {
+  toolchain_identifier: "clang"
+  host_system_name: "linux"
+  target_system_name: "linux"
+  target_cpu: "x86_64"
+  target_libc: "x86_64"
+  compiler: "clang"
+  abi_version: "unknown"
+  abi_libc_version: "unknown"
+
+  tool_path { name: "ar" path: "bin/llvm-ar" }
+  tool_path { name: "cpp" path: "bin/clang-cpp" }
+  tool_path { name: "dwp" path: "bin/llvm-dwp" }
+  tool_path { name: "gcc" path: "bin/clang" }
+  tool_path { name: "gcov" path: "bin/llvm-profdata" }
+  tool_path { name: "ld" path: "bin/ld.lld" }
+  tool_path { name: "nm" path: "bin/llvm-nm" }
+  tool_path { name: "objcopy" path: "bin/llvm-objcopy" }
+  tool_path { name: "objdump" path: "bin/llvm-objdump" }
+  tool_path { name: "strip" path: "bin/llvm-strip" }
+
+  compiler_flag: "-no-canonical-prefixes"
+  linker_flag: "-no-canonical-prefixes"
+
+  compiler_flag: "-v"
+  cxx_builtin_include_directory: "/usr/include"
+}

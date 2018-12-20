@@ -1,0 +1,39 @@
+package(default_visibility = ["//visibility:public"])
+
+cc_toolchain_suite(
+    name = "clang-toolchain",
+    toolchains = {
+        "x86_64": ":cc-compiler-clang",
+        "x86_64|clang": ":cc-compiler-clang",
+    },
+)
+
+cc_toolchain(
+    name = "cc-compiler-clang",
+    all_files = ":all",
+    compiler_files = ":all",
+    cpu = "x86_64",
+    dwp_files = ":empty",
+    dynamic_runtime_libs = [":empty"],
+    linker_files = ":all",
+    objcopy_files = ":empty",
+    static_runtime_libs = [":empty"],
+    strip_files = ":empty",
+    supports_param_files = 1,
+    toolchain_identifier = "clang",
+)
+
+filegroup(
+    name = "empty",
+    srcs = [],
+)
+
+filegroup(
+    name = "all",
+    srcs = glob([
+        "bin/*",
+        "lib/**",
+        "libexec/**",
+        "share/**",
+    ]),
+)
